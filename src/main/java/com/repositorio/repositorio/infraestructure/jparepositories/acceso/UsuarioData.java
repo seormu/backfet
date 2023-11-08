@@ -1,4 +1,4 @@
-package com.repositorio.repositorio.infraestructure.jparepositories.usuario;
+package com.repositorio.repositorio.infraestructure.jparepositories.acceso;
 
 import lombok.*;
 

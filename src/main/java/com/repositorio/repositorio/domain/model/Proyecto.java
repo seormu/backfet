@@ -22,4 +22,5 @@ public class Proyecto {
     private String investigadorTres;
     private String duracion;
     private String valorProyecto;
+    private int cantidadProyectos;
 }

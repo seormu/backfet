@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 import reactor.core.publisher.Flux;
+import reactor.core.publisher.Mono;
 
 @RestController
 @RequiredArgsConstructor
@@ -23,5 +24,10 @@ public class ProgramasCtr {
     public Flux<ProgramaDto> obtrenerProgramas(){
         return programasUseCase.obtenerProgramas()
                 .map(programasMapeador::obtenerDto);
+    }
+
+    @GetMapping("/programas/cantidad")
+    public Mono<String> obtenerCantidadProgramas(){
+        return programasUseCase.obtenerCantidadProgramas();
     }
 }

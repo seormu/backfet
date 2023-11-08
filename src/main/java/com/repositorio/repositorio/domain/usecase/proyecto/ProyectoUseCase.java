@@ -37,4 +37,22 @@ public class ProyectoUseCase {
                 .flatMap(proyecto -> repositorioProyecto.eliminarProyecto(proyecto));
     }
 
+    public Mono<Void> actualizarProyecto(Proyecto proyecto, String id){
+        proyecto.setId(id);
+        return repositorioProyecto.actualizarProyecto(proyecto);
+    }
+
+    public Mono<String> obtenerCantidadProyectos(){
+        return repositorioProyecto.obtenerCantidadProyectos();
+    }
+
+    public Mono<String> complementarId(String programa){
+        return repositorioProyecto.complementarId(programa)
+                .flatMap(valor -> {
+                     Integer conversion = Integer.parseInt(valor);
+                     Integer suma = conversion+1;
+                    return Mono.just(suma.toString());
+                });
+    }
+
 }

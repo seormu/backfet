@@ -18,4 +18,9 @@ public interface ProyectoRepository {
 
     Mono<Void> eliminarProyecto(Proyecto proyecto);
 
+    Mono<Void> actualizarProyecto(Proyecto proyecto);
+
+    Mono<String> obtenerCantidadProyectos();
+    Mono<String> complementarId(String programa);
+
 }

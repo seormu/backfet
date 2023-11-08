@@ -7,6 +7,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import reactor.core.publisher.Flux;
+import reactor.core.publisher.Mono;
 
 @Component
 @RequiredArgsConstructor
@@ -22,5 +23,10 @@ public class ProgramaAdapter implements ProgramaRepository {
     public Flux<Programa> obtenerProgramas() {
         return Flux.fromIterable(dataRepository.findAll())
                 .map(mapeadorProgramas::programaDataToPrograma);
+    }
+
+    @Override
+    public Mono<String> obtenerCantidadProgramas() {
+        return Mono.just(dataRepository.obtenerCantidadProgramas());
     }
 }

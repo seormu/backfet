@@ -14,6 +14,7 @@ import javax.persistence.*;
 public class ProyectoData {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private String id;
     @Column
     private String codigo;
@@ -37,4 +38,6 @@ public class ProyectoData {
     private String duracion;
     @Column
     private String valorProyecto;
+    @Column
+    private int cantidadProyectos;
 }

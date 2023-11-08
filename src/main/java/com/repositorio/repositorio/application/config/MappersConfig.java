@@ -1,5 +1,6 @@
 package com.repositorio.repositorio.application.config;
 
+import com.repositorio.repositorio.infraestructure.mapper.LoginMapper;
 import com.repositorio.repositorio.infraestructure.mapper.ProgramasMapper;
 import com.repositorio.repositorio.infraestructure.mapper.ProyectoMapper;
 import org.mapstruct.factory.Mappers;
@@ -17,5 +18,10 @@ public class MappersConfig {
     @Bean
     public ProgramasMapper programaMapper(){
         return Mappers.getMapper(ProgramasMapper.class);
+    }
+
+    @Bean
+    public LoginMapper loginMapper(){
+        return Mappers.getMapper(LoginMapper.class);
     }
 }

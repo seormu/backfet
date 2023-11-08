@@ -46,4 +46,20 @@ public class ProyectosCtr {
         return useCase.eliminarProyecto(id);
     }
 
+    @PutMapping(value = "/actualizar/{id}")
+    public Mono<Void> actualizarProyecto(@RequestBody ProyectoDto proyectoDto, @PathVariable String id){
+        return useCase.actualizarProyecto(
+                mapeadorProyecto.obtenerEntidad(proyectoDto), id);
+    }
+
+    @GetMapping(value = "cantidad-proyectos")
+    public Mono<String> obtenerCantidadProyectos(){
+        return useCase.obtenerCantidadProyectos();
+    }
+
+    @GetMapping(value = "complementarid/{programa}")
+    public Mono<String> complementarId(@PathVariable String programa){
+        return useCase.complementarId(programa);
+    }
+
 }
