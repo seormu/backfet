@@ -1,5 +1,6 @@
 package com.repositorio.repositorio.application.config;
 
+import com.repositorio.repositorio.infraestructure.mapper.GastoMapper;
 import com.repositorio.repositorio.infraestructure.mapper.LoginMapper;
 import com.repositorio.repositorio.infraestructure.mapper.ProgramasMapper;
 import com.repositorio.repositorio.infraestructure.mapper.ProyectoMapper;
@@ -23,5 +24,10 @@ public class MappersConfig {
     @Bean
     public LoginMapper loginMapper(){
         return Mappers.getMapper(LoginMapper.class);
+    }
+
+    @Bean
+    public GastoMapper gastoMapper(){
+        return Mappers.getMapper(GastoMapper.class);
     }
 }
