@@ -20,7 +20,9 @@ public class Proyecto {
     private String investigadorUno;
     private String investigadorDos;
     private String investigadorTres;
-    private String duracion;
+    private String fechaInicio;
+    private String fechaFin;
+    private String estado;
     private String valorProyecto;
     private int cantidadProyectos;
 }

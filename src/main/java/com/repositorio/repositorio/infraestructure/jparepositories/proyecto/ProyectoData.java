@@ -35,7 +35,11 @@ public class ProyectoData {
     @Column
     private String investigadorTres;
     @Column
-    private String duracion;
+    private String fechaInicio;
+    @Column
+    private String fechaFin;
+    @Column
+    private String estado;
     @Column
     private String valorProyecto;
     @Column

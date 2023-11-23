@@ -18,9 +18,9 @@ public class ProyectosCtr {
     private final ProyectoUseCase useCase;
 
     @GetMapping(value = "/listarProyectos")
-    public Flux<ProyectoDto> listarProyectos(){
+    public Flux<ListaProyectosDto> listarProyectos(){
         return useCase.consultarProyectos()
-                .map(mapeadorProyecto::obtenerDto);
+                .map(mapeadorProyecto::listaProyectoToListaProyectoDto);
     }
 
     @PostMapping(value = "/guardar-proyecto")

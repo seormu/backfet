@@ -1,15 +1,14 @@
-package com.repositorio.repositorio.infraestructure.dto.proyectos;
+package com.repositorio.repositorio.domain.model.proyecto;
 
-import com.repositorio.repositorio.infraestructure.dto.programa.ProgramaDto;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.Setter;
+import com.repositorio.repositorio.infraestructure.dto.proyectos.ProyectoDto;
+import lombok.*;
 
 @Getter
 @Setter
 @AllArgsConstructor
-public class ProyectoDto {
-
+@RequiredArgsConstructor
+@Builder
+public class ListaProyectos {
     private String id;
     private String codigo;
     private String nombreProyecto;
@@ -25,4 +24,5 @@ public class ProyectoDto {
     private String estado;
     private String valorProyecto;
     private int cantidadProyectos;
+    private String alerta;
 }

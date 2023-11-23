@@ -56,7 +56,9 @@ public class ProyectoAdapter implements ProyectoRepository {
                 .investigadorUno(proyectoData.get().getInvestigadorUno())
                 .investigadorDos(proyectoData.get().getInvestigadorDos())
                 .investigadorTres(proyectoData.get().getInvestigadorTres())
-                .duracion(proyectoData.get().getDuracion())
+                .fechaInicio(proyectoData.get().getFechaInicio())
+                .fechaFin(proyectoData.get().getFechaFin())
+                .estado(proyectoData.get().getEstado())
                 .valorProyecto(proyectoData.get().getValorProyecto())
                 .build());
     }
