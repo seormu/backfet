@@ -30,9 +30,9 @@ public class ProyectosCtr {
     }
 
     @GetMapping("filtrar/{filtro}")
-    public Flux<ProyectoDto> filtrarProyectos(@PathVariable String filtro){
+    public Flux<ListaProyectosDto> filtrarProyectos(@PathVariable String filtro){
         return useCase.filtrarProyectos(filtro)
-                .map(mapeadorProyecto::obtenerDto);
+                .map(mapeadorProyecto::listaProyectoToListaProyectoDto);
     }
 
     @GetMapping("detalle/{id}")

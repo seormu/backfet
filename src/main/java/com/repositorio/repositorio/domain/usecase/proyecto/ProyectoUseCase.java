@@ -20,7 +20,6 @@ public class ProyectoUseCase {
     public Flux<ListaProyectos> consultarProyectos(){
         return repositorioProyecto.consultarProyectos()
                 .map(proyecto -> {
-                    System.out.println("id "+proyecto.getId());
                     return ListaProyectos.builder()
                             .id(proyecto.getId())
                             .codigo(proyecto.getCodigo())
@@ -65,8 +64,27 @@ public class ProyectoUseCase {
                 .onErrorResume(error -> Mono.error(new NoContentException("Error al guardar el proyecto: "+error)));
     }
 
-    public Flux<Proyecto> filtrarProyectos(String filtro){
-        return repositorioProyecto.filtarProyectos(filtro);
+    public Flux<ListaProyectos> filtrarProyectos(String filtro){
+        return repositorioProyecto.filtarProyectos(filtro).map(proyecto -> {
+            return ListaProyectos.builder()
+                    .id(proyecto.getId())
+                    .codigo(proyecto.getCodigo())
+                    .nombreProyecto(proyecto.getNombreProyecto())
+                    .objetivoGeneral(proyecto.getObjetivoGeneral())
+                    .programa(proyecto.getPrograma())
+                    .anio(proyecto.getAnio())
+                    .procedencia(proyecto.getProcedencia())
+                    .investigadorUno(proyecto.getInvestigadorUno())
+                    .investigadorDos(proyecto.getInvestigadorDos())
+                    .investigadorTres(proyecto.getInvestigadorTres())
+                    .fechaInicio(proyecto.getFechaInicio())
+                    .fechaFin(proyecto.getFechaFin())
+                    .estado(proyecto.getEstado())
+                    .valorProyecto(proyecto.getValorProyecto())
+                    .cantidadProyectos(proyecto.getCantidadProyectos())
+                    .alerta(generarAlerta(proyecto))
+                    .build();
+        });
     }
 
     public Mono<Proyecto> consultarProyecto(String id){
